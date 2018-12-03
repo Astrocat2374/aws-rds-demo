@@ -47,6 +47,18 @@ functions:
       - http:
           path: get
           method: get
+          cors: true
+
+  postStudent:
+    handler: routes/post.postStudent
+    events:
+      - http:
+          path: post
+          method: post
+          cors: true
+          integration: lambda
+
+
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
 #      - sns: greeter-topic
