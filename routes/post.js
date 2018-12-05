@@ -12,14 +12,15 @@ const pool = new Pool({
   idleTimeoutMillis: 1000
 });
 
-module.exports.getStudent = (event, context, callback) => {
+module.exports.postStudent = (event, context, callback) => {
   console.log('event', event.body);
-  const getAllStudents = `INSERT INTO ${table} VALUES(default, $1, $2);`;
+  const postStudent = `INSERT INTO ${table} VALUES(default, $1, $2);`;
+  let {name, grade} = event.body;
 
   pool.connect()
     .then(client => {
       client.release();
-      return client.query(postStudent, [name, grade_level]);
+      return client.query(postStudent, [name, grade]);
     })
     .then(data => {
       const response = {
