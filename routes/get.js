@@ -35,6 +35,9 @@ module.exports.getStudent = (event, context, callback) => {
 
       callback(null, response)
     })
+    .catch(error=>{
+      console.log('error', error);
+    })
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 };
