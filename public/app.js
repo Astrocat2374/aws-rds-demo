@@ -1,3 +1,21 @@
+const name = document.querySelector('#post-name');
+const grade = document.querySelector('#post-grade');
+const submit = document.querySelector('#post-submit');
+
+submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log(name.value);
+    console.log(grade.value);
+    axios
+        .post(`https://ytch000b6c.execute-api.us-west-2.amazonaws.com/dev/post`, {
+            name: name.value,
+            grade: grade.value
+        })
+        .catch((error)=>{
+            console.log('error', error);
+        })
+})
+
 axios
     .get(`https://ytch000b6c.execute-api.us-west-2.amazonaws.com/dev/get`)
     .then((response)=>{
@@ -17,10 +35,4 @@ axios
     })
     .catch((error)=>{
         console.log('error', error);
-    })
-
-axios
-    .post(`https://ytch000b6c.execute-api.us-west-2.amazonaws.com/dev/post`)
-    .then((response)=>{
-        console.log('post response', response);
     })
