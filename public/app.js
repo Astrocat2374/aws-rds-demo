@@ -1,15 +1,15 @@
-const name = document.querySelector('#post-name');
-const grade = document.querySelector('#post-grade');
-const submit = document.querySelector('#post-submit');
+const postName = document.querySelector('#post-name');
+const postGrade = document.querySelector('#post-grade');
+const postSubmit = document.querySelector('#post-submit');
 
-submit.addEventListener('click', (event) => {
+postSubmit.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(name.value);
-    console.log(grade.value);
+    console.log(postName.value);
+    console.log(postGrade.value);
     axios
         .post(`https://ytch000b6c.execute-api.us-west-2.amazonaws.com/dev/post`, {
-            name: name.value,
-            grade: grade.value
+            name: postName.value,
+            grade: postGrade.value
         })
         .catch((error)=>{
             console.log('error', error);
@@ -21,7 +21,7 @@ axios
     .then((response)=>{
         console.log('get response', response.data.message.rows)
         const render = (response.data.message.rows).map(x=>{
-            console.log('x', x);
+            console.log(x);
             let cardTemplate = `
             <div class = 'card'>
                 <p> ${x.name} </p>

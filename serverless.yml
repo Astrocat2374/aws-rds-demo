@@ -57,6 +57,15 @@ functions:
           method: post
           cors: true
           integration: lambda
+  
+  putStudent:
+    handler: routes/put.putStudent
+    events:
+      - http:
+          path: put
+          method: put
+          cors: true
+          integration: lambda
 
 
 #      - s3: ${env:BUCKET}
