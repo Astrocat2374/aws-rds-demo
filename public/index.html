@@ -8,19 +8,28 @@
 </head>
 <body>
     <form id = 'post-form'>
-        <p>Add New Student</p>
+        <h3>Add New Student</h3>
+        <p>Student Info</p>
         <input id = 'post-name' type = 'text' placeholder = 'Student Name'>
         <input id = 'post-grade' type = 'number' min = '9' max = '12' placeholder = 'Grade'>
         <input id = 'post-submit' type = 'submit' value = 'submit'>
     </form>
 
     <form id = 'put-form'>
+        <h3>Edit Student</h3>
         <p>Student ID</p>
-        <input id = 'get-id' type = 'number'>
+        <input id = 'put-id' type = 'number'>
         <p>New Student Info</p>
         <input id = 'put-name' type = 'text' placeholder = 'Student Name'>
         <input id = 'put-grade' type = 'number' min = '9' max = '12' placeholder = 'Grade'>
         <input id = 'put-submit' type = 'submit' value = 'submit'>
+    </form>
+
+    <form id = 'delete-form'>
+        <h3>Delete Student</h3>
+        <p>Student ID</p>
+        <input id = 'delete-id' type = 'number'>
+        <input id = 'delete-submit' type = 'submit' value = 'submit'>
     </form>
 
     <div id="result"></div>

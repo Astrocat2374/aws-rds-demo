@@ -67,6 +67,15 @@ functions:
           cors: true
           integration: lambda
 
+  deleteStudent:
+    handler: routes/delete.deleteStudent
+    events:
+      - http:
+          path: delete
+          method: delete
+          cors: true
+          integration: lambda
+
 
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)

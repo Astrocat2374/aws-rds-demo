@@ -12,15 +12,15 @@ const pool = new Pool({
   idleTimeoutMillis: 1000
 });
 
-module.exports.putStudent = (event, context, callback) => {
+module.exports.deleteStudent = (event, context, callback) => {
   console.log('event', event.body);
-  const putStudent = `UPDATE ${table} SET name = $1, grade = $2 WHERE id = $3;`;
-  let {name, grade, id} = event.body;
+  const deleteStudent = `DELETE FROM ${table} WHERE id = $1;`;
+  let {id} = event.body;
 
   pool.connect()
     .then(client => {
       client.release();
-      return client.query(putStudent, [name, grade, id]);
+      return client.query(deleteStudent, [id]);
     })
     .then(data => {
       const response = {
@@ -29,9 +29,8 @@ module.exports.putStudent = (event, context, callback) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true
         },
-          message: 'Successfully edited student!'
+          message: 'Successfully deleted student!'
       };
-
       callback(null, response)
     })
     .catch(error=>{

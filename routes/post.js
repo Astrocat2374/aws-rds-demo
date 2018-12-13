@@ -29,9 +29,7 @@ module.exports.postStudent = (event, context, callback) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true
         },
-        body: JSON.stringify({
-          message: data
-        }),
+          message: 'Successfully added student!'
       };
 
       callback(null, response)
